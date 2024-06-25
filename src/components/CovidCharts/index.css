@@ -1,0 +1,52 @@
+.covid-charts-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  color: #0ea5e9;
+}
+
+.chart-wrapper {
+  width: 80vw;
+  margin-bottom: 20px;
+}
+
+.chart-background {
+  background: #1e1e30;
+  padding: 10px;
+  border-radius: 8px;
+}
+.confirmed-hover {
+  background-color: #25060a;
+  border-radius: 12px;
+}
+
+.deceased-hover {
+  background-color: #060a3a;
+  border-radius: 12px;
+}
+
+.recovered-hover {
+  background-color: #182829;
+  border-radius: 12px;
+}
+
+.tested-hover {
+  background-color: #04350f;
+  border-radius: 12px;
+}
+
+.vaccinated1-hover {
+  background-color: #1e0625;
+  border-radius: 12px;
+}
+
+.vaccinated2-hover {
+  background-color: #102231;
+  border-radius: 12px;
+}
+.daily-spread-heading {
+  color: white;
+  text-align: left;
+  position: relative;
+}
