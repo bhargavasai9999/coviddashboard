@@ -73,84 +73,93 @@ class CovidCharts extends Component {
         <div className="chart-wrapper">
           <h2>Daily Total Cases</h2>
           <div className="chart-background">
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={dailyTotalCasesData.slice(0, 10)}>
+            <div width="100%" height={300}>
+              <BarChart
+                data={dailyTotalCasesData.slice(0, 10)}
+                width={1000}
+                height={300}
+              >
                 <XAxis dataKey="date" tickCount={4} />
                 <YAxis />
                 <Tooltip />
                 <Bar dataKey="totalCases" fill="#de0909" />
               </BarChart>
-            </ResponsiveContainer>
+            </div>
           </div>
         </div>
-
-        <div className="chart-wrapper">
-          <h2>Confirmed Cases</h2>
-          <div className="chart-background confirmed-hover">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={datesData}>
-                <XAxis dataKey="date" tickCount={4} />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="confirmed" stroke="#ff073a" />
-              </LineChart>
-            </ResponsiveContainer>
+        <div testid="lineChartsContainer">
+          <div className="chart-wrapper">
+            <h2>Confirmed Cases</h2>
+            <div className="chart-background confirmed-hover">
+              <div width="100%" height={300}>
+                <LineChart data={datesData} width={1000} height={300}>
+                  <XAxis dataKey="date" tickCount={4} />
+                  <YAxis />
+                  <Tooltip />
+                  <Line type="monotone" dataKey="confirmed" stroke="#ff073a" />
+                </LineChart>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="chart-wrapper">
-          <h2>Deceased Cases</h2>
-          <div className="chart-background deceased-hover">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={datesData}>
-                <XAxis dataKey="date" tickCount={4} />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="deceased" stroke="#6c757d" />
-              </LineChart>
-            </ResponsiveContainer>
+          <div className="chart-wrapper">
+            <h2>Deceased Cases</h2>
+            <div className="chart-background deceased-hover">
+              <div width="100%" height={300}>
+                <LineChart data={datesData} width={1000} height={300}>
+                  <XAxis dataKey="date" tickCount={4} />
+                  <YAxis />
+                  <Tooltip />
+                  <Line type="monotone" dataKey="deceased" stroke="#6c757d" />
+                </LineChart>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="chart-wrapper">
-          <h2>Recovered Cases</h2>
-          <div className="chart-background recovered-hover">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={datesData}>
-                <XAxis dataKey="date" tickCount={4} />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="recovered" stroke="#28a745" />
-              </LineChart>
-            </ResponsiveContainer>
+          <div className="chart-wrapper">
+            <h2>Recovered Cases</h2>
+            <div className="chart-background recovered-hover">
+              <div width="100%" height={300}>
+                <LineChart data={datesData} width={1000} height={300}>
+                  <XAxis dataKey="date" tickCount={4} />
+                  <YAxis />
+                  <Tooltip />
+                  <Line type="monotone" dataKey="recovered" stroke="#28a745" />
+                </LineChart>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="chart-wrapper">
-          <h2>Tested Cases</h2>
-          <div className="chart-background tested-hover">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={datesData}>
-                <XAxis dataKey="date" tickCount={4} />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="tested" stroke="#94a3b8" />
-              </LineChart>
-            </ResponsiveContainer>
+          <div className="chart-wrapper">
+            <h2>Tested Cases</h2>
+            <div className="chart-background tested-hover">
+              <div width="100%" height={300}>
+                <LineChart data={datesData} width={1000} height={300}>
+                  <XAxis dataKey="date" tickCount={4} />
+                  <YAxis />
+                  <Tooltip />
+                  <Line type="monotone" dataKey="tested" stroke="#94a3b8" />
+                </LineChart>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="chart-wrapper">
-          <h2>Vaccinated Dose 1</h2>
-          <div className="chart-background vaccinated1-hover">
-            <ResponsiveContainer width="100%" height={300}>
-              <LineChart data={datesData}>
-                <XAxis dataKey="date" tickCount={4} />
-                <YAxis />
-                <Tooltip />
-                <Line type="monotone" dataKey="vaccinated1" stroke="#0ea5e9" />
-              </LineChart>
-            </ResponsiveContainer>
+          <div className="chart-wrapper">
+            <h2>Vaccinated Dose 1</h2>
+            <div className="chart-background vaccinated1-hover">
+              <div width="100%" height={300}>
+                <LineChart data={datesData} width={1000} height={300}>
+                  <XAxis dataKey="date" tickCount={4} />
+                  <YAxis />
+                  <Tooltip />
+                  <Line
+                    type="monotone"
+                    dataKey="vaccinated1"
+                    stroke="#0ea5e9"
+                  />
+                </LineChart>
+              </div>
+            </div>
           </div>
         </div>
       </div>
