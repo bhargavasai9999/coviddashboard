@@ -125,7 +125,6 @@ class EachStateCovidDetails extends Component {
     const {params} = match
     const {id} = params
 
-    const numberFormat = new Intl.NumberFormat()
     const updatedDate = this.getTheDate()
     const {
       isLoading,
@@ -136,110 +135,100 @@ class EachStateCovidDetails extends Component {
       eachstateactivecases,
       eachstatedistrictcases,
     } = this.state
+    const stateName = this.getStateName(id)
 
     return (
       <>
         <Header />
         {isLoading ? (
-          <div testid="stateDetailsLoader">
+          <div testid='stateDetailsLoader'>
             <LoaderSpinner />
           </div>
         ) : (
-          <div className="content" testid="">
-            <div className="statedetails-container">
+          <div className='content' testid=''>
+            <div className='statedetails-container'>
               <div>
-                <h1 className="statename-heading">
-                  {this.getStateName(id)}
-                  <br />
-                  {numberFormat.format(eachstateconfirmedcases)}
+                <h1 className='statename-heading'>
+                  {stateName} {eachstateconfirmedcases}
                 </h1>
-                <p className="date-description">{`Last Updated on ${updatedDate}`}</p>
+                <p className='date-description'>{`Last Updated on ${updatedDate}`}</p>
               </div>
               <div>
-                <p className="tested-description">Tested</p>
-                <p className="each-state-tests">
-                  {numberFormat.format(eachstatecovidtests)}
+                <p className='tested-description'>Tested</p>
+                <p className='each-state-tests'>{eachstatecovidtests} </p>
+              </div>
+            </div>
+
+            <div className='each-state-cases-container'>
+              <div
+                className='cases-container confirmed-hover'
+                testid='stateSpecificConfirmedCasesContainer'
+              >
+                <p className='state-confirmed-heading'>Confirmed</p>
+                <img
+                  src='https://res.cloudinary.com/dqu21kv9o/image/upload/v1628572637/check-mark_1_2_wjyqu2.png'
+                  className='state-confirmed-icon'
+                  alt='state specific confirmed cases pic'
+                />
+                <p className='state-confirmed-cases-des'>
+                  {eachstateconfirmedcases}
+                </p>
+              </div>
+
+              <div
+                className='cases-container active-hover'
+                testid='stateSpecificActiveCasesContainer'
+              >
+                <p className='state-active-heading'>Active</p>
+                <img
+                  src='https://res.cloudinary.com/dqu21kv9o/image/upload/v1628572504/protection_1_1_fr0rgh.png'
+                  className='state-confirmed-icon'
+                  alt='state specific active cases pic'
+                />
+                <p className='state-active-cases-des'>{eachstateactivecases}</p>
+              </div>
+
+              <div
+                className='cases-container recovered-hover'
+                testid='stateSpecificRecoveredCasesContainer'
+              >
+                <p className='state-recovered-heading'>Recovered</p>
+                <img
+                  src='https://res.cloudinary.com/dqu21kv9o/image/upload/v1628572342/recovered_1_os4jpg.png'
+                  className='state-confirmed-icon'
+                  alt='state specific recovered cases pic'
+                />
+                <p className='state-recovered-cases-des'>
+                  {eachstaterecoveredcases}
+                </p>
+              </div>
+
+              <div
+                className='cases-container deceased-hover'
+                testid='stateSpecificDeceasedCasesContainer'
+              >
+                <p className='state-deceased-heading'>Deceased</p>
+                <img
+                  src='https://res.cloudinary.com/dqu21kv9o/image/upload/v1628578893/breathing_1_juingi.png'
+                  className='state-confirmed-icon'
+                  alt='state specific deceased cases pic'
+                />
+                <p className='state-deceased-cases-des'>
+                  {eachstatedeceasedcases}{' '}
                 </p>
               </div>
             </div>
 
-            <div className="each-state-cases-container">
-              <div
-                className="cases-container confirmed-hover"
-                testid="stateSpecificConfirmedCasesContainer"
-              >
-                <h1 className="state-confirmed-heading">Confirmed</h1>
-                <img
-                  src="https://res.cloudinary.com/dqu21kv9o/image/upload/v1628572637/check-mark_1_2_wjyqu2.png"
-                  className="state-confirmed-icon"
-                  alt="state specific confirmed cases pic"
-                />
-                <p className="state-confirmed-cases-des">
-                  {numberFormat.format(eachstateconfirmedcases)}
-                </p>
-              </div>
-
-              <div
-                className="cases-container active-hover"
-                testid="stateSpecificActiveCasesContainer"
-              >
-                <h1 className="state-active-heading">Active</h1>
-                <img
-                  src="https://res.cloudinary.com/dqu21kv9o/image/upload/v1628572504/protection_1_1_fr0rgh.png"
-                  className="state-confirmed-icon"
-                  alt="state specific active cases pic"
-                />
-                <p className="state-active-cases-des">
-                  {numberFormat.format(eachstateactivecases)}
-                </p>
-              </div>
-
-              <div
-                className="cases-container recovered-hover"
-                testid="stateSpecificRecoveredCasesContainer"
-              >
-                <h1 className="state-recovered-heading">Recovered</h1>
-                <img
-                  src="https://res.cloudinary.com/dqu21kv9o/image/upload/v1628572342/recovered_1_os4jpg.png"
-                  className="state-confirmed-icon"
-                  alt="state specific recovered cases pic"
-                />
-                <p
-                  className="state-recovered-cases-des"
-                  testid="stateSpecificRecoveredCasesContainer"
-                >
-                  {numberFormat.format(eachstaterecoveredcases)}
-                </p>
-              </div>
-
-              <div
-                className="cases-container deceased-hover"
-                testid="stateSpecificDeceasedCasesContainer"
-              >
-                <h1 className="state-deceased-heading">Deceased</h1>
-                <img
-                  src="https://res.cloudinary.com/dqu21kv9o/image/upload/v1628578893/breathing_1_juingi.png"
-                  className="state-confirmed-icon"
-                  alt="state specific deceased cases pic"
-                />
-                <p className="state-deceased-cases-des">
-                  {numberFormat.format(eachstatedeceasedcases)}
-                </p>
-              </div>
-            </div>
-
-            <div className="district-details-container">
-              <h1 className="top-district-title">Top Districts</h1>
+            <div className='district-details-container'>
+              <h1 className='top-district-title'>Top Districts</h1>
               <ul
-                className="top-districts-container "
-                testid="topDistrictsUnorderedList"
+                className='top-districts-container '
+                testid='topDistrictsUnorderedList'
               >
                 {eachstatedistrictcases.map(eachTop => (
-                  <li className="each-top-district" key={eachTop[0]}>
-                    <p className="top-number">
-                      {numberFormat.format(eachTop[1])}
-                    </p>
-                    <p className="top-district">{eachTop[0]}</p>
+                  <li className='each-top-district' key={eachTop[0]}>
+                    <p className='top-number'>{eachTop[1]} </p>
+                    <p className='top-district'>{eachTop[0]}</p>
                   </li>
                 ))}
               </ul>
